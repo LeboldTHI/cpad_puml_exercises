@@ -1,0 +1,23 @@
+@startuml Sample Sequence Diagram 
+group Explanation of different method types
+    Bob ->x Alice: Eine verloren gegangene Nachricht an Alice
+    Bob -> Alice: Aufruf an Alice 
+    activate Alice
+    Alice -> Bob: Antwort von Alice 
+    deactivate 
+    Bob ->> Alice: Asynchroner Aufruf von Alice
+end 
+
+group Explanation of different operations
+    loop 1000 times
+        Alice -> Bob: DNS Attacke
+    end
+
+    alt "DNS Attack was successful"
+    Bob -> Alice: Ouch ... 
+    else "DNS Attack not successful"
+    Bob -> Alice: Nice try 
+    end 
+end
+
+@enduml 

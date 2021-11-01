@@ -1,0 +1,34 @@
+@startuml Sample Seqence Diagram Simple
+
+autonumber
+actor "Kunde" as K
+participant "Bankautomat" as B
+participant "Bankenserver" as S
+
+K -> B: Karte einschieben 
+activate K
+B -> B: Prüfung ob Karte\nakzeptiert wird 
+activate B
+deactivate B
+B -> K: Aufforderung zur Auswahl Optionen 
+activate K
+K -> B: Auswahl Auszahlung 
+activate B
+deactivate B
+K -> B: Eingabe Auszahlungsbetrag
+deactivate K
+activate B
+B -> S: Prüfung Liquidität 
+activate S
+alt Liquidität vorhanden
+    S -> B: Liquidität vorhanden
+    B -> K: Auszahlung des Geldes 
+    K -> B: Geld herausnehmen 
+else Keine Liquidität vom Kunden vorhanden 
+    S->B: Keine Liquidität vorhanden
+deactivate S
+B->K: Meldung "Nicht genug Liquidität vorhanden"
+deactivate B
+end 
+
+@enduml 

@@ -1,0 +1,16 @@
+@startuml Beispiel Use-Case
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+actor admin
+
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .> (payment) : include
+  (help) .> (checkout) : extends
+  (checkout) -- clerk
+  admin -- (hire new employees)
+}
+
+@enduml

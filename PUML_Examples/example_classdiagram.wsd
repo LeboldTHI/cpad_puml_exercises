@@ -1,0 +1,6 @@
+@startuml Übung
+package "UML konforme und korrekte\nVerwendung von Assoziationen" <<Rectangle>> {
+    Seite "1" --- "m" Wort: besteht\naus
+    Buch "1" --- "m" Seite: besteht\naus  
+}
+@enduml
